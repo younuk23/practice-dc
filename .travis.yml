@@ -8,3 +8,13 @@ before_install:
 
 script:
   - docker run -e CI=true yeonuk/practice-dc npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-northeast-2"
+  app: "udemy-docker-app"
+  env: "Udemy-docker-app-env"
+  bucket_name: "elasticbeanstalk-ap-northeast-2-852190556770"
+  bucket_path: "udemy-docker-app"
+  on:
+    branch: main
